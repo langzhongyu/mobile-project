@@ -102,6 +102,9 @@ export default {
         this.$toast.success('登录成功！')
         // 将后端返回的用户登录状态（token等数据）放到vuex容器中
         this.$store.commit('setUser', data.data)
+        // 清除layout的缓存，让页面重新渲染
+        this.$store.commit('removeCachePage', 'LayoutIndex')
+
         this.$router.push(this.$route.query.redirect || '/') // this.$route.query.redirecr路由重定向
       } catch (err) {
         if (err.response.status === 400) {

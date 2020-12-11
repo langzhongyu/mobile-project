@@ -55,7 +55,12 @@
           </van-grid>
         </van-cell-group>
         <div class="not-login" v-else>
-          <div @click="$router.push('./login')">
+          <div @click="$router.push({
+            path: 'login',
+            query: {
+              redirect: '/my'
+            }
+          })">
             <img src="./手机.png" class="mobile" alt="">
             <div class="mobile-text">登录/注册</div>
           </div>
@@ -119,7 +124,7 @@ export default {
     async loadCurrentUser () {
       const { data } = await getUserInfo()
       this.currentUser = data.data
-      console.log(JSON.stringify(this.currentUser))
+      // console.log(JSON.stringify(this.currentUser))
     }
   }
 }
@@ -133,6 +138,7 @@ export default {
       height: 180px;
       .head-info {
         background: none;
+        padding-top: 30px;
         .photoShow {
           margin-right: 10px;
         }

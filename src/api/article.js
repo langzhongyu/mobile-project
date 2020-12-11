@@ -15,3 +15,36 @@ export const getUserArticles = params => {
     params
   })
 }
+
+/**
+ * 获取新闻文章详情
+ */
+export const getArticleDetail = articleId => {
+  return request({
+    method: 'GET',
+    url: `/app/v1_0/articles/${articleId}`
+  })
+}
+
+/**
+ * 给文章点赞
+ */
+export const articleLike = articleId => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/article/likings',
+    data: {
+      target: articleId
+    }
+  })
+}
+
+/**
+ * 取消文章点赞
+ */
+export const cancelArticleLike = articleId => {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/article/likings/${articleId}`
+  })
+}

@@ -6,6 +6,20 @@
 }
 body {
 	background: #f5f7f9;
+	word-wrap:break-word;
+	word-break:break-all; 
+}
+
+pre {
+	word-break: break-all; // 按字符截断换行 /* 支持IE和chrome，FF不支持*/
+	word-wrap:break-word; // 按英文单词整体截断换行  /* 以上三个浏览器均支持 */
+	white-space: pre-wrap;
+}
+
+p {
+	word-wrap:break-word; 
+	word-break:break-all; 
+	overflow: hidden;/*这个参数根据需求来决定要不要*/
 }
 
 .van-nav-bar {
@@ -40,5 +54,63 @@ body {
 				font-size: 16px;
 			}
 		}
+	}
+	.van-tabs__wrap--scrollable .van-tab {
+	  border-right:1px solid #edeff3;
+	  border-bottom:1px solid #edeff3;
+	}
+	.van-tabs__line {
+	    background-color: #3296fa;
+		width: 14px;
+	}
+}
+.channel-item {
+  .van-grid-item__content {
+	 background: #f4f5f6;
+  }
+  .van-cell::after {
+	  border:none;
+  }
+  .van-grid-item__icon {
+	 color: #ccc;
+	 font-size: 20px;
+	 position: absolute;
+	 top:-6px;
+	 right: 4px;
+	 opacity: 1;
+  }
+  .van-grid-item__icon+.van-grid-item__text {
+	  margin-top: 0;
+  }
+  .active .van-grid-item__text {color: red;}
+}
+
+.article-container {
+	.van-image {
+		width: 35px!important;
+		height: 35px!important;
+		.van-image__error, .van-image__img, .van-image__loading {
+		  width: 35px;
+		  height: 35px;
+		  border-radius: 50%;
+		}
+	}
+	.van-cell {
+		align-items: center;
+		background: none;
+	}
+	.van-divider {
+		width: 92%;
+		margin: 0.42667rem auto;
+	}
+}
+
+.article-container {
+	.van-cell {
+		align-items: normal;
+	}
+	.van-popup__close-icon {
+		color: #1989fa;
+		font-size: 14px;;
 	}
 }

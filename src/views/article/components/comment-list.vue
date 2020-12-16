@@ -53,11 +53,11 @@ export default {
     async onLoad () {
       const { data } = await getComment({
         type: this.type,
-        source: this.source,
+        source: this.source.toString(),
         offset: this.offset, // 页码
         limit: this.limit
       })
-      // console.log(data)
+      console.log(data)
       this.$emit('total_count', data.data.total_count)
       const { results } = data.data
       this.list.push(...results)

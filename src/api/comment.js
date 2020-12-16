@@ -15,12 +15,11 @@ export const addComment = data => {
  *  获取评论或评论回复
  * */
 
-export const getComment = (params, data) => {
+export const getComment = params => {
   return request({
     method: 'GET',
     url: '/app/v1_0/comments',
-    params,
-    data
+    params
   })
 }
 
